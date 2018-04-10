@@ -1,0 +1,6 @@
+usr/local/bin/Woochain-qt usr/bin
+share/pixmaps/Woochain32.xpm usr/share/pixmaps
+share/pixmaps/Woochain16.xpm usr/share/pixmaps
+share/pixmaps/Woochain128.png usr/share/pixmaps
+debian/Woochain-qt.desktop usr/share/applications
+debian/Woochain-qt.protocol usr/share/kde4/services/

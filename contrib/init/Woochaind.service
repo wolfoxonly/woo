@@ -1,0 +1,25 @@
+# It is not recommended to modify this file in-place, because it will
+# be overwritten during package upgrades. If you want to add further
+# options or overwrite existing ones then use
+# $ systemctl edit Woochaind.service
+# See "man systemd.service" for details.
+
+# Note that almost all daemon options could be specified in
+# /etc/Woochain/Woochain.conf
+
+[Unit]
+Description=Woochain daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/Woochaind -daemon -conf=/etc/Woochain/Woochain.conf -pid=/run/Woochaind/Woochaind.pid
+# Creates /run/Woochaind owned by Woochain
+RuntimeDirectory=Woochaind
+User=Woochain
+Type=forking
+PIDFile=/run/Woochaind/Woochaind.pid
+Restart=on-failure
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

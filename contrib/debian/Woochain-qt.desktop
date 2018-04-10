@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Woochain Core
+Comment=Connect to the Woochain P2P Network
+Comment[de]=Verbinde mit dem Woochain peer-to-peer Netzwerk
+Comment[fr]=Woochain, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Woochain, eşten eşe kriptografik sanal para birimi
+Exec=Woochain-qt %u
+Terminal=false
+Type=Application
+Icon=Woochain128
+MimeType=x-scheme-handler/Woochain;
+Categories=Office;Finance;
+StartupWMClass=Woochain-qt

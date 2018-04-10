@@ -1,0 +1,81 @@
+policy_module(Woochain, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type Woochain_t;
+type Woochain_exec_t;
+init_daemon_domain(Woochain_t, Woochain_exec_t)
+
+permissive Woochain_t;
+
+type Woochain_initrc_exec_t;
+init_script_file(Woochain_initrc_exec_t)
+
+type Woochain_conf_t;
+files_type(Woochain_conf_t)
+
+type Woochain_var_lib_t;
+files_type(Woochain_var_lib_t)
+
+type Woochain_var_run_t;
+files_type(Woochain_var_run_t)
+
+type Woochain_port_t;
+corenet_port(Woochain_port_t)
+
+########################################
+#
+# Woochain local policy
+#
+allow Woochain_t self:process { fork };
+
+allow Woochain_t self:fifo_file rw_fifo_file_perms;
+allow Woochain_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(Woochain_t, Woochain_conf_t, Woochain_conf_t)
+manage_files_pattern(Woochain_t, Woochain_conf_t, Woochain_conf_t)
+
+manage_dirs_pattern(Woochain_t, Woochain_var_lib_t, Woochain_var_lib_t)
+manage_files_pattern(Woochain_t, Woochain_var_lib_t, Woochain_var_lib_t)
+files_var_lib_filetrans(Woochain_t, Woochain_var_lib_t, { dir file })
+
+manage_dirs_pattern(Woochain_t, Woochain_var_run_t, Woochain_var_run_t)
+manage_files_pattern(Woochain_t, Woochain_var_run_t, Woochain_var_run_t)
+
+sysnet_dns_name_resolve(Woochain_t)
+corenet_all_recvfrom_unlabeled(Woochain_t)
+
+allow Woochain_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(Woochain_t)
+corenet_tcp_sendrecv_generic_node(Woochain_t)
+corenet_tcp_sendrecv_all_ports(Woochain_t)
+corenet_tcp_bind_generic_node(Woochain_t)
+
+gen_require(`
+    type Woochain_port_t;
+')
+allow Woochain_t Woochain_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type Woochain_port_t;
+')
+allow Woochain_t Woochain_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(Woochain_t)
+
+files_read_etc_files(Woochain_t)
+
+miscfiles_read_localization(Woochain_t)
+
+sysnet_dns_name_resolve(Woochain_t)
+
+allow Woochain_t Woochain_exec_t:file execute_no_trans;
+allow Woochain_t self:process setsched;
+corecmd_exec_ls(Woochain_t)
+corenet_tcp_connect_http_port(Woochain_t)
+dev_read_urand(Woochain_t)
+fs_getattr_xattr_fs(Woochain_t)
+kernel_read_system_state(Woochain_t)
