@@ -390,6 +390,7 @@ public:
         }
     }
 };
+typedef CWoochainAddress CBitcoinAddress;
 
 bool inline CWoochainAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
 bool inline CWoochainAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
