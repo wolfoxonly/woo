@@ -1254,7 +1254,7 @@ int64 GetProofOfStakeReward(int64 nCoinAge,int64 balance)//<zxb>
 
     float rate = 0.0000001*pow(0.1,year);//zxb
     printf("rate ===== %f\n", rate);
-    int64 nSubsidy = ((rate / 100) * nCoinAge / 365) * COIN;
+    int64 nSubsidy = ::ceill((rate / 100.0) * nCoinAge / 365) * COIN;
 
     // if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%" PRI64d"\n", FormatMoney(nSubsidy).c_str(), nCoinAge);
@@ -3462,12 +3462,12 @@ bool InitBlockIndex() {
                  {
                      // Found a solution
                       printf("Found a solution ooooooooooooooooooooooookkkkk \n" );
-                      printf("block.nNonce 11111111111111 zxb:%d \n" ,block.nNonce);
-                       printf("nNonceFound 11111111111111 zxb:%d \n" ,nNonceFound);
+                      printf("block.nNonce 11111111111111 coingo.vip:%d \n" ,block.nNonce);
+                       printf("nNonceFound 11111111111111 coingo.vip:%d \n" ,nNonceFound);
                       block.nNonce = ByteReverse(nNonceFound);
-                      printf("block.nNonce 22222222 zxb:%d \n" ,block.nNonce);
-                       printf("hashdata 33333 zxb:%s\n", hashdata.ToString().c_str());
-                      printf("GetHash 44444 zxb:%s\n" ,block.GetHash().ToString().c_str());
+                      printf("block.nNonce 22222222 coingo.vip:%d \n" ,block.nNonce);
+                       printf("hashdata 33333 coingo.vip:%s\n", hashdata.ToString().c_str());
+                      printf("GetHash 44444 coingo.vip:%s\n" ,block.GetHash().ToString().c_str());
                    
                    
                    
