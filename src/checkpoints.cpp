@@ -38,12 +38,21 @@ namespace Checkpoints
     // + Contains no strange transactions
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        ( 0, hashGenesisBlockOfficial )//<ZXB>
-        // ( 41786, uint256("0x0000000000089ee1e4a663e125e762a12a05f578a8132a10ef0fb03826e6b035"))
-        // ( 43847, uint256("0x000000000007564776612c9545247be1f81ecde9934e1d8b8ac836dd7fbd58e6"))
-        // ( 99999, uint256("0x27fd5e1de16a4270eb8c68dee2754a64da6312c7c3a0e99a7e6776246be1ee3f"))
-        // (219999, uint256("0xab0dad4b10d2370f009ed6df6effca1ba42f01d5070d6b30afeedf6463fbe7a2"))
-        // (336000, uint256("0x4d261cef6e61a5ed8325e560f1d6e36f4698853a4c7134677f47a1d1d842bdf6"))
+        ( 0, hashGenesisBlockOfficial )
+        
+	(91, uint256("00000004e4f62a243c58587b846acd0a076b9607130cd714163c5e4d610d34a7"))
+	(92, uint256("000000087d75cc298537d9af4806ab7b299f7c64cc5bf3dc7d02fa08ed48c0ba"))
+	(2887, uint256("00000049865c5c6d45a98055e5501cd1965a84cb1a3ce9432da03462722a364e"))
+	(2888, uint256("00000015b9a7d1adfbcea6ee15f033189141f55cd2f79fee3712c470d2ec60d5"))
+	(4748, uint256("00000068572dfb0661a6dff439964cee6123118d3681f6263ef4a9ac7ec1e502"))
+	(4749, uint256("000000780346e810e8295785e48d81d66c619b833b501cd652bd3114db886951"))
+	(6244, uint256("00000025767e4dddb42182113876eb27cba2443ad7684fbb1acf2de4eb13e084"))
+	(6245, uint256("00000034a0cb7262166562ad5706b8405cb45039223ec361bcd4d085ee1eb3e9"))
+	(9317, uint256("00000002dbdeff17ef912896e09609f066befa83c6cb5a0c99b5a0f0c75ceb01"))
+	(9318, uint256("0000005146057c2d867d25fd6fc6c10a0d390605ad43b6b5a29b3741bda19c3e"))
+
+        //coingo.vip
+
         ;
     static const CCheckpointData data = {
         &mapCheckpoints,

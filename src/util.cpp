@@ -1171,7 +1171,7 @@ boost::filesystem::path GetConfigFile()
             pathConfigFile = pathOldConfigFile;
         else
         {
-              ///zxb add blow      
+              ///coingo.vip add blow      
             FILE *file = fopen(pathConfigFile.string().c_str(), "wb+");
             CAutoFile fileout = CAutoFile(file, SER_DISK, CLIENT_VERSION);
             if (!fileout)
@@ -1187,7 +1187,7 @@ boost::filesystem::path GetConfigFile()
             }
             FileCommit(fileout);
             fileout.fclose();
-                    ///zxb add above
+                    ///coingo.vip add above
         }
           
     }

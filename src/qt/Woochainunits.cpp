@@ -34,7 +34,7 @@ QString WoochainUnits::name(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("WOO");//zxb定义名字
+    case BTC: return QString("WOO");//coingo.vip定义名字
     case mBTC: return QString("mWOO");
     case uBTC: return QString::fromUtf8("μWOO");
     default: return QString("???");
