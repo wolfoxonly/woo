@@ -11,7 +11,7 @@
 // These need to be macros, as version.cpp's and Woochain-qt.rc's voodoo requires it
 #define CLIENT_VERSION_MAJOR       3
 #define CLIENT_VERSION_MINOR       0
-#define CLIENT_VERSION_REVISION    0
+#define CLIENT_VERSION_REVISION    1
 #define CLIENT_VERSION_BUILD       0
 
 // Set to true for release, false for prerelease or test build
@@ -26,7 +26,7 @@
 // ppcoin version - intended for display purpose ONLY
 #define WOOCHAIN_VERSION_MAJOR       3
 #define WOOCHAIN_VERSION_MINOR       0
-#define WOOCHAIN_VERSION_REVISION    0
+#define WOOCHAIN_VERSION_REVISION    1
 #define WOOCHAIN_VERSION_BUILD       1
 
 // Copyright year (2009-this)
