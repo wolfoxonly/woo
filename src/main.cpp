@@ -36,7 +36,7 @@ unsigned int nTransactionsUpdated = 0;
 map<uint256, CBlockIndex*> mapBlockIndex;
 set<pair<COutPoint, unsigned int> > setStakeSeen;
 uint256 hashGenesisBlock = hashGenesisBlockOfficial;
-// static CBigNum bnProofOfWorkLimit(~uint256(0) >> 32);<zxb>
+// static CBigNum bnProofOfWorkLimit(~uint256(0) >> 32);<coingo.vip>
 // static CBigNum bnInitialHashTarget(~uint256(0) >> 40);
 // unsigned int nbits = 0x1e0fffff;
 // static CBigNum bnProofOfWorkLimit(nbits);//(0x1e0fffff);
@@ -79,7 +79,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Woochain4.0 Signed Message:\n";
+const string strMessageMagic = "Woochain R4 Signed Message:\n";//coing.vip
 
 double dHashesPerSec = 0.0;
 int64 nHPSTimerStart = 0;
@@ -467,7 +467,7 @@ bool CTxOut::IsDust() const
     // need a CTxIn of at least 148 bytes to spend,
     // so dust is a txout less than 54 uBTC
     // (5460 satoshis) with default nMinRelayTxFee
-    return ((nValue*1000.0)/(3*((int)GetSerializeSize(SER_DISK,0)+148)) < CTransaction::nMinRelayTxFee);//fixed zxb
+    return ((nValue*1000.0)/(3*((int)GetSerializeSize(SER_DISK,0)+148)) < CTransaction::nMinRelayTxFee);//fixed coingo.vip
 }
 
 bool CTransaction::IsStandard(string& strReason) const
@@ -1200,7 +1200,7 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 GetProofOfWorkReward(unsigned int nBits)
 {
-    return 0.00001 * COIN;//<zxb>定义pow奖励
+    return 0.00001 * COIN;//<coingo.vip>定义pow奖励
     CBigNum bnSubsidyLimit = MAX_MINT_PROOF_OF_WORK;
     CBigNum bnTarget;
     bnTarget.SetCompact(nBits);
@@ -1232,7 +1232,7 @@ int64 GetProofOfWorkReward(unsigned int nBits)
 }
 
 // ppcoin: miner's coin stake is rewarded based on coin age spent (coin-days)
-int64 GetProofOfStakeReward(int64 nCoinAge,int64 balance)//<zxb>
+int64 GetProofOfStakeReward(int64 nCoinAge,int64 balance)//<coingo.vip>
 {
     // static int64 nRewardCoinYear = CENT;  // creation amount per coin-year
     // int64 nSubsidy = nCoinAge * 33 / (365 * 33 + 8) * nRewardCoinYear;
@@ -1249,10 +1249,11 @@ int64 GetProofOfStakeReward(int64 nCoinAge,int64 balance)//<zxb>
     //     }
     // }
     //10分钟一个区块的话，一年是 24 * 60 / 10 * 365
-    int year =  std::ceil(pindexBest->nHeight / (24 * 60 / 2 * 365));//zxb利率衰减部分
+    int year =  std::ceil(pindexBest->nHeight / (24 * 60 / 2 * 365));//coingo.vip利率衰减部分
     printf("year ===== %d\n", year);
 
-    float rate = 0.0000001*pow(0.1,year);//zxb
+    //float rate = 0.0000001*pow(0.1,year);//coingo.vip
+    float rate = 0
     printf("rate ===== %f\n", rate);
     int64 nSubsidy = ::ceill((rate / 100.0) * nCoinAge / 365) * COIN;
 
@@ -2130,7 +2131,7 @@ bool SetBestChain(CValidationState &state, CBlockIndex* pindexNew)
     nBestChainTrust = pindexNew->nChainTrust;
     nTimeBestReceived = GetTime();
     nTransactionsUpdated++;
-    //zxb去掉logo
+    //coingo.vip去掉logo
     /*
     printf("SetBestChain: new best=%s  height=%d  log2_trust=%.8g  moneysupply=%s  tx=%lu  date=%s progress=%f\n",
       hashBestChain.ToString().c_str(), nBestHeight, log(nBestChainTrust.getdouble())/log(2.0), FormatMoney(pindexBest->nMoneySupply).c_str(),
@@ -2502,7 +2503,7 @@ bool CBlock::CheckBlock(CValidationState &state, bool fCheckPOW, bool fCheckMerk
     if (IsProofOfStake() && !CheckCoinStakeTimestamp(GetBlockTime(), (int64)vtx[1].nTime))
         return state.DoS(50, error("CheckBlock() : coinstake timestamp violation nTimeBlock=%" PRI64u" nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
 
-    // Check coinbase reward <zxb>
+    // Check coinbase reward <coingo.vip>
     // if (vtx[0].GetValueOut() > (IsProofOfWork()? (GetProofOfWorkReward(nBits) - vtx[0].GetMinFee() + MIN_TX_FEE) : 0))
     //     return state.DoS(50, error("CheckBlock() : coinbase reward exceeded %s > %s", 
     //                FormatMoney(vtx[0].GetValueOut()).c_str(),
@@ -3405,7 +3406,7 @@ bool InitBlockIndex() {
         block.nTime    = 1523348479;// 1345084287;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
       //  block.nNonce   = 2179302059u;
-        block.nNonce = ByteReverse(7503565);//<zxb>
+        block.nNonce = ByteReverse(7503565);//<coingo.vip>
         if (fTestNet)
         {
             block.nTime    = 1345090000;
@@ -3423,7 +3424,7 @@ bool InitBlockIndex() {
             block.nNonce++;
         }
  #endif
-/////////////////////////////////zxb11111111111111111111111
+/////////////////////////////////coingo.vip11111111111111111111111
 
   //
          block.nNonce = 0;
@@ -3476,7 +3477,7 @@ bool InitBlockIndex() {
              }
          }
 
-        //////////////////////////zxbend/////////////////////////
+        //////////////////////////coingo.vipend/////////////////////////
 
 
 
@@ -3484,13 +3485,13 @@ bool InitBlockIndex() {
 
 
 
- printf("block.nNonce 11111111111111 zxb:%d \n" ,block.nNonce);
+ printf("block.nNonce 11111111111111 coingo.vip:%d \n" ,block.nNonce);
         //// debug print
         uint256 hash = block.GetHash();
         printf("block hash %s\n", hash.ToString().c_str());
         printf("hashGenesisBlock_offical %s\n", hashGenesisBlock.ToString().c_str());
         printf("hashMerkleRoot %s\n", block.hashMerkleRoot.ToString().c_str());
-        printf("block.nBits 2222222222222222222 zxb:%d \n" ,block.nBits);
+        printf("block.nBits 2222222222222222222 coingo.vip:%d \n" ,block.nBits);
         assert(block.hashMerkleRoot == uint256("0xc0db796be78ae0d39ffc3b924bea566c9d221c7bc47a972d779f575310549920"));
        // assert(block.hashMerkleRoot == uint256("0xece2718fca52c7c1c233fb9add9a7a4866794d8043fe75af407a9c59fa56cc79"));
         block.print();
@@ -5202,12 +5203,12 @@ CBlockTemplate* CreateNewBlock(CReserveKey& reservekey, CWallet* pwallet, bool f
           
            if(pindexPrev->nHeight == 0)
            {
-                pblock->vtx[0].vout[0].nValue = 500000000 * COIN;//首块产量<zxb>
+                pblock->vtx[0].vout[0].nValue = 500000000 * COIN;//首块产量<coingo.vip>
            }
            else
            {
 		
-             pblock->vtx[0].vout[0].nValue = reward;//zxb
+             pblock->vtx[0].vout[0].nValue = reward;//coingo.vip
            }
           
           
@@ -5424,12 +5425,12 @@ void WoochainMiner(CWallet *pwallet, bool fProofOfStake)
         printf("Running WoochainMiner with %" PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
-        if (pindexPrev->nHeight > 100000000 )
-        {//大于100000000不让用pow了<ZXB>
+      /*  if (pindexPrev->nHeight > 100000000 )
+        {//大于100000000不让用pow了<coingo.vip>
             printf("block height >1000 is not pow Minner is not use\n");
             return;
         }
-        //
+        *///coingo.vip不关闭pow
         // Pre-build hash buffers
         //
         char pmidstatebuf[32+16]; char* pmidstate = alignup<16>(pmidstatebuf);

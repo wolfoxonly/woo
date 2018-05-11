@@ -9,7 +9,7 @@
 //
 
 // These need to be macros, as version.cpp's and Woochain-qt.rc's voodoo requires it
-#define CLIENT_VERSION_MAJOR       3
+#define CLIENT_VERSION_MAJOR       4
 #define CLIENT_VERSION_MINOR       0
 #define CLIENT_VERSION_REVISION    1
 #define CLIENT_VERSION_BUILD       0
@@ -24,7 +24,7 @@
 #endif //HAVE_CONFIG_H
 
 // ppcoin version - intended for display purpose ONLY
-#define WOOCHAIN_VERSION_MAJOR       3
+#define WOOCHAIN_VERSION_MAJOR       4
 #define WOOCHAIN_VERSION_MINOR       0
 #define WOOCHAIN_VERSION_REVISION    1
 #define WOOCHAIN_VERSION_BUILD       1
