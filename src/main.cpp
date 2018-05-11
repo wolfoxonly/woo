@@ -1254,7 +1254,7 @@ int64 GetProofOfStakeReward(int64 nCoinAge,int64 balance)//<coingo.vip>
 
     //float rate = 0.0000001*pow(0.1,year);//coingo.vip
     float rate = 0
-    printf("rate ===== %f\n", rate);
+    //printf("rate ===== %f\n", rate);
     int64 nSubsidy = ::ceill((rate / 100.0) * nCoinAge / 365) * COIN;
 
     // if (fDebug && GetBoolArg("-printcreation"))
