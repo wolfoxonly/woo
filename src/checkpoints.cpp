@@ -41,8 +41,6 @@ namespace Checkpoints
         ( 0, hashGenesisBlockOfficial )        
 	(1,   uint256("0x0000000af05e4ea4dd2391962eabc7be78d1c8d9eb7ba258dad105c30c7c7009"))
 	(2,   uint256("0x0000000ae78b915f692b55995b797fad1965c5416c53eb8ac2b00d80085005c7"))
-
-
         //coingo.vip
 
         ;

@@ -320,7 +320,7 @@ return 1;
 #endif
     return ret;
 }
-*//coingo.vip delete logo
+*///coingo.vip delete logo
 
 string vstrprintf(const char *format, va_list ap)
 {
